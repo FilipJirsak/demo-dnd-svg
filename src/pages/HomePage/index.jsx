@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { DndContext, useDraggable, useDroppable } from "@dnd-kit/core";
+import { restrictToParentElement } from "@dnd-kit/modifiers";
 import { CSS } from "@dnd-kit/utilities";
 
 import "./style.css";
@@ -113,7 +114,7 @@ export const HomePage = () => {
         </DndContext>
       </main>
       <main>
-        <DndContext onDragEnd={handleMapDragEnd}>
+        <DndContext onDragEnd={handleMapDragEnd} modifiers={[/*restrictToParentElement*/]}>
           <div className="viewport">
             <Map top={y} left={x} />
           </div>
